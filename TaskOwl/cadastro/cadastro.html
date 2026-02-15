@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/TO.png" type="image/png">
+    <title>Cadastro - Taskowl</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <div class="logo"><a href="../home/index.html"><img src="../img/loguinho.png" alt="Loguinho"></a></div>
+        </div>
+        <div class="nav-right">
+            <a href="../home/index.html"">Como <span class="funciona-highlight">Funciona</span></a>
+            <a href="../sobre-nos/sobrenos.html">Sobre <span class="funciona-highlight">Nós</span></a>
+            <a href="../login/login.html"><button class="enter-button">ENTRAR</button></a>
+        </div>    
+    </header>
+
+    <div class="content">
+        <div class="login-container">
+            <h3>Preencha as informações para finalizar sua <span class="assinatura">assinatura</span></h3>
+
+       
+            <h1 class="resp">Informações do Responsável</h1>
+            <form id="form-cad">
+
+                <label for="nomer"> Nome </label> 
+                <p>
+                <input type="nome" id="nomer" placeholder="NOME COMPLETO*" required><p>
+                    <label for="datar", for="date"> Data de Nascimento </label> <label for="tel"> Contato </label> 
+                <p>
+                <input type="data" id="datar" placeholder="00/00/0000" onfocus="this.type='date'" onblur="if (!this.value) this.type='data'" required>
+                    
+                <input type="telefone" id="tel" placeholder="(00) 0 0000-0000" required><p>
+                    <label for="rg"> RG </label> <label for="gen"> Genero </label> 
+                    <p>
+                <input type="rg" id="rg" placeholder="00.000.000-0" required>
+
+                <select name="genero" id="gen">
+                        <option value="" disabled selected hidden>Genêro</option>
+                        <option value="masc">Masculino</option>
+                        <option value="fem">Feminino</option>
+                        <option value="nb">Outro</option>
+                </select><p>
+                    <label for="email"> Email </label> 
+                <p>
+                <input type="email" id="email" placeholder="XXXXXX@XXXX.com" required><p>
+                    <label for="senhar"> Senha </label> <label for="senhar2"> Confirmar Senha </label>
+                <p>
+                <input type="password" id="senhar" placeholder="*********" required>
+
+                <input type="password" id="senhar2" placeholder="*********" required>
+                    <div class="login-options">
+                        <label>
+                            <input type="checkbox" id="lembre-me">Guardar senha</label>
+                    </div>
+                    <h1 class="cria">Informações da Criança</h1>
+
+                    <label for="nomea">Nome</label> <label for="dataa", for="date2">Data de Nascimento</label>
+                    <p>
+                <input type="nome2" id="nomea" placeholder="NOME COMPLETO*" required>
+                       
+    
+                <input type="data2" id="dataa" placeholder="00/00/0000" onfocus="this.type='date2'" onblur="if (!this.value) this.type='data2'" required><p>
+                <button type="submit" class="butt">CADASTRAR</button>
+                <div class="social-login">
+                    <button id="google-login-btn" class="butt2">Cadastrar com o Google</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/taskowl2024?igsh=MXg1Z2o1zOGhrMg==" target="_blank"><img src="../img/insta.png" alt="Instagram"></a>
+            <a href="mailto:taskowl9@gmail.com" target="_blank"><img src="../img/email.png" alt="Email"></a>
+            <a href="https://wa.me/5511982518435" target="_blank"><img src="../img/wpp.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-text">
+            <a href="../termos/termos.html" style="text-decoration: none;"><p>Termos de uso • Política de privacidade</p></a>
+            <p>© Taskowl - São Paulo</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBg4mnGqODQoznONfmzgZQHSUMarGFsaRQ",
+            authDomain: "taskowl-f999a.firebaseapp.com",
+            projectId: "taskowl-f999a",
+            storageBucket: "taskowl-f999a.appspot.com",
+            messagingSenderId: "727431486322",
+            appId: "1:727431486322:web:3194046089fc3ee4fc1beb",
+            measurementId: "G-SBV5DCVPTF"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Google Login Button
+        document.getElementById('google-login-btn').addEventListener('click', function() {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log('Usuário:', user);
+                    window.location.href = '../login/login.html'; // Redirecionar para a página de login após cadastro com Google
+                })
+                .catch((error) => {
+                    console.error('Erro:', error.code, error.message);
+                    alert('Erro: ' + error.message);
+                });
+        });
+
+        // Handle signup form submission
+        document.getElementById('form-cad').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('senhar').value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert('Cadastro realizado com sucesso!');
+                    window.location.href = '../login/login.html'; // Redirecionar para a página de login após cadastro
+                })
+                .catch((error) => {
+                    alert('Erro: ' + error.message);
+                });
+        });
+    </script>
+
+</body>
+</html>

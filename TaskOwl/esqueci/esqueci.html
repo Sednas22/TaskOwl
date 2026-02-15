@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/TO.png" type="image/png">
+    <title>Esqueci Minha Senha - Taskowl</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <div class="logo"><a href="../home/index.html"><img src="../img/loguinho.png" alt="Loguinho"></a></div>
+        </div>
+        <div class="nav-right">
+            <a href="../home/index.html">Como <span class="funciona-highlight">Funciona</span></a>
+            <a href="../sobre-nos/sobrenos.html">Sobre <span class="funciona-highlight">Nós</span></a>
+            <a href="../login/login.html"><button class="enter-button">ENTRAR</button></a>
+        </div>    
+    </header>
+
+    <div class="content">
+        <div class="reset-container">
+            <h1>Esqueci Minha Senha</h1>
+            <form id="reset-form">
+                <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                <button type="submit">Enviar Link de Redefinição</button>
+                <p id="message"></p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/taskowl2024?igsh=MXg1Z2o1zOGhrMg==" target="_blank"><img src="../img/insta.png" alt="Instagram"></a>
+            <a href="mailto:taskowl9@gmail.com" target="_blank"><img src="../img/email.png" alt="Email"></a>
+            <a href="https://wa.me/5511982518435" target="_blank"><img src="../img/wpp.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-text">
+            <a href="../termos/termos.html" style="text-decoration: none;"><p>Termos de uso • Política de privacidade</p></a>
+            <p>© Taskowl - São Paulo</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBg4mnGqODQoznONfmzgZQHSUMarGFsaRQ",
+            authDomain: "taskowl-f999a.firebaseapp.com",
+            projectId: "taskowl-f999a",
+            storageBucket: "taskowl-f999a.appspot.com",
+            messagingSenderId: "727431486322",
+            appId: "1:727431486322:web:3194046089fc3ee4fc1beb",
+            measurementId: "G-SBV5DCVPTF"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('reset-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    document.getElementById('message').innerText = 'Link de redefinição enviado para o seu e-mail!';
+                    document.getElementById('email').value='';
+                })
+                .catch((error) => {
+                    document.getElementById('message').innerText = 'Erro: ' + error.message;
+                });
+        });
+    </script>
+
+</body>
+</html>

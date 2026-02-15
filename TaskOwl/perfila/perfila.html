@@ -1,0 +1,158 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/TO.png" type="image/png">
+    <title>Perfil - Taskowl</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="flex flex-col min-h-screen">
+    <header>
+        <div class="nav-left">
+            <div class="logo"><a href="../home/index.html"><img src="../img/loguinho.png" alt="Loguinho"></a></div>
+        </div>
+        <div class="nav-right">
+            <a href="../home/index.html">Como <span class="funciona-highlight">Funciona</span></a>
+            <a href="../sobre-nos/sobrenos.html">Sobre <span class="funciona-highlight">Nós</span></a>
+            <a href="../jogos/pgjogos.html"><button class="jogos-button">JOGOS</button></a>
+            <a href="../perfila/perfila.html"><button class="enter-button">MEU PERFIL</button></a>
+        </div>    
+    </header>
+
+    <section class="performance-section"></section>
+    <div class="user-info">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome">
+        <label for="id">ID</label>
+        <input type="text" id="id">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha">
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>Sua Atividade</h3>
+            <button class="dropdown-btn">Sua Atividade ▼</button>
+            <div class="dropdown-container">
+                <a href="../jogos/OE.html">Operação espacial</a>
+                <a href="../jogos/Desenrola.html">Desenrola</a>
+            </div>
+
+            <p>
+
+            <h3>Acessos</h3>
+            <button class="dropdown-btn">Acessos ▼</button>
+            <div class="dropdown-container">
+                <a href="../jogos/pgjogos.html">Página de jogos</a>
+                <a href="../home/index.html">Home</a>
+            </div>
+
+
+            <button class="enter-button" id="logout-btn" style="margin-top: 10px;">SAIR</button>
+        </div>
+
+        <section>
+            <div class="tit">
+                <h2>GRÁFICOS DE DESEMPENHO</h2>
+            </div>
+            <div class="performance-chart">
+                <div class="charts">
+                    <div class="chart">
+                        <h3>Português</h3>
+                        <div class="container">
+                            <canvas id="graficoPortugues" width="500" height="300"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <h3>Matemática</h3>
+                        <div class="container">
+                            <canvas id="graficoMatematica" width="500" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/taskowl2024?igsh=MXg1Z2o1zOGhrMg==" target="_blank"> <img src="../img/insta.png" alt="Instagram"></a>
+            <a href="mailto:taskowl9@gmail.com" target="_blank"><img src="../img/email.png" alt="Email"></a>
+            <a href="https://wa.me/5511982518435" target="_blank"><img src="../img/wpp.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-text">
+            <a href="../termos/termos.html" style="text-decoration: none;"><p>Termos de uso • Política de privacidade</p></a>
+            <p>© Taskowl - São Paulo</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Gerar gráfico de Português
+        window.onload = function() {
+            const ctxPortugues = document.getElementById('graficoPortugues').getContext('2d');
+            const dadosPortugues = {
+                labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6'],
+                datasets: [{
+                    label: 'Desempenho (%)',
+                    data: [80, 70, 90, 85, 95, 100],
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            };
+            const opcoesPortugues = {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Desempenho (%)' }
+                    },
+                    x: { title: { display: true, text: 'Dias de Uso' } }
+                }
+            };
+            new Chart(ctxPortugues, { type: 'line', data: dadosPortugues, options: opcoesPortugues });
+
+            // Gerar gráfico de Matemática
+            const ctxMatematica = document.getElementById('graficoMatematica').getContext('2d');
+            const dadosMatematica = {
+                labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6'],
+                datasets: [{
+                    label: 'Desempenho (%)',
+                    data: [85, 75, 80, 90, 92, 98],
+                    fill: false,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    tension: 0.1
+                }]
+            };
+            const opcoesMatematica = {
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Desempenho (%)' } },
+                    x: { title: { display: true, text: 'Dias de Uso' } }
+                }
+            };
+            new Chart(ctxMatematica, { type: 'line', data: dadosMatematica, options: opcoesMatematica });
+        };
+
+      
+        document.getElementById('logout-btn').addEventListener('click', function() {
+
+            alert("Você foi desconectado!");
+
+            window.location.href = '../login/login.html'; 
+        });
+
+        var dropdownBtns = document.getElementsByClassName("dropdown-btn");
+    for (var i = 0; i < dropdownBtns.length; i++) {
+      dropdownBtns[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        dropdownContent.style.display =
+          dropdownContent.style.display === "block" ? "none" : "block";
+      });
+    }
+    </script>
+</body>
+</html>

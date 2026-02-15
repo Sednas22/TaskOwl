@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/TO.png" type="image/png">
+    <title>Operação Espacial</title>
+    <link rel="stylesheet" href="stylesoe.css">
+</head>
+
+<body>
+
+    <div id="menu" class="text-center">
+        <h1>OPERAÇÃO ESPACIAL</h1>
+        <div class="grid">
+            <button onclick="começarjogo()">JOGAR</button>
+            <button onclick="controles()">CONTROLES</button>
+            <button onclick="opcoes()">OPÇÕES</button>
+            <button onclick="sair()">SAIR</button>
+        </div>
+    </div>
+
+    <script>
+        function sair() {
+            window.location.href = '../jogos/pgjogos.html';
+        }
+        function opcoes() {
+            document.getElementById('opcoes-menu').style.display = 'flex';
+        }
+
+        function fecharOpcoes() {
+            document.getElementById('opcoes-menu').style.display = 'none';
+        }
+
+        function controles() {
+            document.getElementById('controles-menu').style.display = 'flex';
+        }
+
+        function fecharControles() {
+            document.getElementById('controles-menu').style.display = 'none';
+        }
+
+        function começarjogo() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('game').style.display = 'block';
+            jogoIniciado = true;
+        }
+    </script>
+</body>
+
+<body1>
+    <div id="controles-menu" style="display: none;">
+        <div class="controles-overlay">
+            <div class="controles-container">
+                <h2>CONTROLES</h2>
+                <p>Use as setas <strong>Esquerda</strong> e <strong>Direita</strong> para mover a nave.</p>
+                <p>Pressione <strong>Espaço</strong> ou <strong>CTRL</strong> para atirar.</p>
+                <button onclick="fecharControles()">Sair</button>
+            </div>
+        </div>
+    </div>
+</body1>
+
+<body2>
+    <div id="opcoes-menu" style="display: none;">
+        <div class="opcoes-overlay">
+            <div class="opcoes-container">
+                <h2>OPÇÕES</h2>
+                <label for="volume-tiros">Volume dos tiros e colisões:</label>
+                <input type="range" id="volume-tiros" min="0" max="1" step="0.1" value="1"
+                    onchange="ajustarVolumeTiros()" class="sons">
+
+                <label for="volume-musica">Volume da música:</label>
+                <input type="range" id="volume-musica" min="0" max="1" step="0.1" value="1"
+                    onchange="ajustarVolumeMusica()" class="sons">
+
+                <p>
+                <p>Operadores:</p>
+                <label>
+                    <input type="checkbox" id="operador-mais" checked onchange="atualizarOperadores()" class="checkbox">
+                    +
+                </label>
+                <label>
+                    <input type="checkbox" id="operador-menos" checked onchange="atualizarOperadores()"
+                        class="checkbox"> -
+                </label>
+                <label>
+                    <input type="checkbox" id="operador-multiplicacao" checked onchange="atualizarOperadores()"
+                        class="checkbox"> *
+                </label>
+                </p>
+                <button onclick="fecharOpcoes()">Sair</button>
+            </div>
+        </div>
+    </div>
+</body2>
+
+<body3>
+    <audio src="../sons/space-station.mp3" autoplay loop id="musica"></audio>
+    <div id="game">
+        <div class="game-info">
+            <h2>Pontuação: <span id="pontuacao">0</span></h2>
+            <h2>Objetivo: <span id="objetivo">0</span></h2>
+            <h2>Operação Atual: <span id="operacao-atual">?</span></h2>
+
+        </div>
+        <div class="game-board">
+            <img src="../img/nave.gif" class="nave" id="nave">
+
+            <img src="../img/Pause.png" class="pausar" id="pause" onclick="pausar"><img src="../img/controles.png"
+                class="controles-amostral">
+        </div>
+
+        <div id="pause-menu" style="display: none;">
+            <div class="overlay">
+                <img src="../img/som.png" onclick="mutar()" id="som" class="sombotao">
+                <button onclick="retomarJogo()">Retomar</button>
+                <button onclick="reiniciarJogo()">Reiniciar</button>
+                <button onclick="voltarMenu()">Menu</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="scriptoe.js"></script>
+
+</body3>
+
+</html>

@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d0134;
+    color: #fff;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    background-color: #330654;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left .logo h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.enter-button {
+    background-color: #ffdd00;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enter-button:hover {
+    background-color: #e6c700;
+}
+
+.search-box {
+    width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #330654;
+    color: white;
+}
+
+.container {
+    margin-top: 120px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffdd00;
+    margin-bottom: 20px;
+}
+
+#scrambled-word {
+    font-size: 2rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #fc0394;
+}
+
+#input-word {
+    font-size: 1rem;
+    padding: 10px;
+    width: 300px;
+    margin: 10px 0;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: #330654;
+    color: white;
+}
+
+#check-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #fcd303;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#check-button:hover {
+    background-color: #fc0394;
+}
+
+#feedback {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #ffdd00;
+}
+
+#hint {
+    font-size: 1rem;
+    color: #ffdd00;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: #1d0134;
+    padding: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-right {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    #input-word {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+
+    .nav-right {
+        flex-direction: column;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+.sair {
+    margin-right: 95%;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #fcd303;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

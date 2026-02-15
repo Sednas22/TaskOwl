@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #290842;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    width: 100vw;
+    background-color: #2a075c;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.nav-right .funciona-highlight {
+    color: #ffdd00;
+}
+
+.enter-button {
+    background-color: #ffdd00;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.enter-button:hover {
+    background-color: #e6c700;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 50px;
+    background-color: #2b0244;
+}
+
+.box {
+    text-align: center;
+    padding: 30px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.box:hover {
+    width: 400px;
+    transition: width 0.3s ease-in-out;
+    background-color: #2b0244;
+}
+
+.box h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #fc0394;
+}
+
+.box h2:hover {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #fc0394;
+}
+
+.box p {
+    font-size: 18px;
+}
+
+.box p:hover {
+    font-size: 20px;
+}
+
+.login-container {
+    background-color: #3f006a;
+    padding: 2rem 4rem;
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;
+    min-width: 40%;
+}
+
+.login-container h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #ffdd00;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.login-options a {
+    color: #ffdd00;
+    text-decoration: none;
+}
+
+button {
+    background-color: #ffdd00;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e6c700;
+}
+
+button h3 {
+    color: color;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.social-login button {
+    background-color: #fff;
+    color: #3f006a;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #290842;
+    border-radius: 5px;
+}
+
+.image-container img {
+    width: auto;
+    height: 100%;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #2a075c;
+    width: 100%;
+    padding: 20px 0 100;
+    text-align: center;
+    position: relative;
+    margin-top: auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-links img {
+    width: 35px;
+    height: 35px;
+    margin: 10px 10px;
+}
+
+.footer-text {
+    color: #ffdd00;
+    margin: 5px 0;
+}
+
+footer p {
+    color: #ffdd00;
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+    .nav-right {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    .nav-right a {
+        margin: 5px 0;
+    }
+    .content {
+        flex-direction: column;
+        padding: 20px;
+        margin-top: 80px;
+    }
+    .login-container {
+        width: 90%;
+        padding: 2rem 2rem;
+    }
+    .image-container {
+        width: 90%;
+        height: auto;
+    }
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px;
+    }
+    .nav-right {
+        flex-direction: column;
+    }
+    .login-container {
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .image-container {
+        width: 100%;
+        height: auto;
+    }
+}

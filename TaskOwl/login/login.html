@@ -1,0 +1,114 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/TO.png" type="image/png">
+    <title>Login - Taskowl</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <div class="logo"><a href="../home/index.html"><img src="../img/loguinho.png" alt="Loguinho"></a></div>
+        </div>
+        <div class="nav-right">
+            <a href="../home/index.html">Como <span class="funciona-highlight">Funciona</span></a>
+            <a href="../sobre-nos/sobrenos.html">Sobre <span class="funciona-highlight">Nós</span></a>
+            <a href="../login/login.html"><button class="enter-button">ENTRAR</button></a>
+        </div>    
+    </header>
+
+    <div class="content">
+        <div class="login-container">
+            <h1>LOGIN</h1>
+            <form id="login-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <div class="login-options">
+                    <label>
+                        <input type="checkbox" id="remember-me"> Guardar senha
+                    </label>
+                    <a href="../esqueci/esqueci.html">Esqueci minha senha</a>
+                </div>
+                <button type="submit">ENTRAR</button>
+                <div class="social-login">
+                    <button id="google-login-btn">Entrar com o Google</button>
+                </div>
+            </form>
+            <p>
+                <a href="../planos/planos.html" title="Cadastrar!" style="color:#ffdd00;">Cadastrar</a>
+            </p>
+        </div>
+
+        <div class="image-container">
+            <img src="../img/logo.png" alt="Imagem ao lado do formulário de login">
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/taskowl2024?igsh=MXg1Z2o1zOGhrMg==" target="_blank"> <img src="../img/insta.png" alt="Instagram"></a>
+            <a href="mailto:taskowl9@gmail.com" target="_blank"><img src="../img/email.png" alt="Email"></a>
+            <a href="https://wa.me/5511982518435" target="_blank"><img src="../img/wpp.png" alt="WhatsApp"></a>
+        </div>
+        <div class="footer-text">
+            <a href="../termos/termos.html" style="text-decoration: none;"><p>Termos de uso • Política de privacidade</p></a>
+            <p>© Taskowl - São Paulo</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBg4mnGqODQoznONfmzgZQHSUMarGFsaRQ",
+          authDomain: "taskowl-f999a.firebaseapp.com",
+          projectId: "taskowl-f999a",
+          storageBucket: "taskowl-f999a.appspot.com",
+          messagingSenderId: "727431486322",
+          appId: "1:727431486322:web:3194046089fc3ee4fc1beb",
+          measurementId: "G-SBV5DCVPTF"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
+
+        // Google Login Button
+        document.getElementById('google-login-btn').addEventListener('click', function() {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log('Usuário:', user);
+                    window.location.href = '../perfila/perfila.html'; // Redirecionar após login com Google
+                })
+                .catch((error) => {
+                    console.error('Erro:', error.code, error.message);
+                    alert('Erro: ' + error.message);
+                });
+        });
+
+        // Handle login form submission
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert('Login realizado com sucesso!');
+                    window.location.href = '../perfila/perfila.html'; // Redirecionar após login
+                })
+                .catch((error) => {
+                    alert('Erro: ' + error.message);
+                });
+        });
+    </script>
+
+</body>
+</html>
