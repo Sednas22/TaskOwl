@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="../img/TO.png" type="image/png" />
+  <title>Aprenda Jogando - TaskOwl</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <a href="." class="nav-left"><img src="../img/loguinho.png" alt="Loguinho" /></a>
+    <div class="nav-right">
+      <a href="../sobre-nos/sobrenos.html" class="nr-a1">Sobre <span>Nós</span></a>
+      <a href="../login/login.html" class="nr-a2">ENTRAR</a>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>APRENDA JOGANDO</h1>
+      <p>
+        O saber é uma grande aventura, a diversão e o aprendizado caminham
+        lado a lado!
+      </p>
+      <a href="../planos/planos.html">Planos</a>
+    </div>
+    <script>
+      const heroText = document.querySelector(".hero-text");
+      const heroH1 = heroText.querySelector("h1");
+      const h1Width = heroH1.offsetWidth;
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth >= 1080) {
+        const h1Width = heroH1.offsetWidth;
+        const h1WidthInVW = (h1Width / viewportWidth) * 100;
+        heroText.style.maxWidth = `${h1WidthInVW}vw`;
+      }
+    </script>
+    <div class="hero-image">
+      <img src="../img/crias.jpg" alt="Imagem ilustrativa" />
+      <h2>VEJA COMO FUNCIONA</h2>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="ct-d1">
+      <div class="box">
+        <h2>Matemática</h2>
+        <p>
+          Nossos métodos estimulam o raciocínio lógico e a resolução de
+          problemas, levando o aprendizado para o próximo nível.
+        </p>
+      </div>
+      <div class="box">
+        <h2>Lúdico</h2>
+        <p>
+          Cada desafio é uma nova oportunidade de explorar suas habilidades
+          cognitivas enquanto se diverte bastante.
+        </p>
+      </div>
+      <div class="box">
+        <h2>Português</h2>
+        <p>
+          Nossas atividades focam na alfabetização e compreensão textual para
+          dominar a nossa língua materna.
+        </p>
+      </div>
+    </div>
+    <div class="ct-d2">
+      <div class="box-mao">
+        <h2>compreensão</h2>
+        <p>
+          Nossas atividades focam na alfabetização e compreensão textual para
+          dominar a nossa língua materna.
+        </p>
+      </div>
+      <div class="neurodiversity-img">
+        <img src="../img/mao.PNG" alt="Imagem neurodiversidade" />
+      </div>
+    </div>
+  </section>
+
+  <section class="carofsky">
+    <div class="carrossel-container">
+      <div class="carrossel">
+        <video class="images active" src="../img/videoproto.mp4" controls></video>
+        <img class="images" src="../img/Mídia (1).jfif" alt="Imagem 1" />
+        <img class="images" src="../img/Mídia (2).jfif" alt="Imagem 2" />
+        <img class="images" src="../img/Mídia (3).jfif" alt="Imagem 3" />
+        <img class="images" src="../img/Mídia (4).jfif" alt="Imagem 4" />
+        <img class="images" src="../img/Mídia (5).jfif" alt="Imagem 5" />
+        <img class="images" src="../img/Mídia (6).jfif" alt="Imagem 6" />
+        <img class="images" src="../img/Mídia (7).jfif" alt="Imagem 7" />
+      </div>
+      <button class="prev" onclick="mudarImagem(-1)">&#10094;</button>
+      <button class="next" onclick="mudarImagem(1)">&#10095;</button>
+    </div>
+    <div class="baixar">
+      <h2>BAIXE NOSSO PROTÓTIPO MOBILE!</h2>
+      <a href="#" download="T_OWL.apk">BAIXAR</a>
+    </div>
+  </section>
+
+  <div class="neurodiversity-img2">
+    <img src="../img/barrinha.PNG" alt="barra" />
+  </div>
+
+  <section class="faq">
+    <h2>Perguntas Frequentes</h2>
+    <div class="faq-item">
+      <button class="dropdown-btn">
+        <h3>
+          1. Como os jogos ajudam meu filho a aprender português e matemática?
+        </h3>
+      </button>
+      <div class="dropdown-container">
+        <p>
+          ⤷ Os jogos são projetados para ensinar conceitos de forma lúdica e
+          interativa, aumentando o engajamento e a retenção de conhecimento.
+        </p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="dropdown-btn">
+        <h3>2. Quais são as formas de pagamento?</h3>
+      </button>
+      <div class="dropdown-container">
+        <p>⤷ Cartão de débito/crédito e PIX.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="dropdown-btn">
+        <h3>
+          3. Os jogos podem ser usados como complemento ao ensino escolar?
+        </h3>
+      </button>
+      <div class="dropdown-container">
+        <p>
+          ⤷ Sim, trabalhamos com supervisão de professores em um plano
+          específico para o ensino fundamental I.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="neurodiversity-img3">
+    <img src="../img/cores.PNG" alt="barra" />
+  </div>
+
+  <footer>
+    <div class="parceria">
+      <h3>PARCERIA</h3>
+      <div class="membro">
+        <img src="../img/fabi.jpeg" alt="Môninca Fabiana" />
+        <p id="mf">Monica Fabiana</p>
+        <p>Terapeuta infantil e Psicopedagoga</p>
+      </div>
+    </div>
+    <div class="social-links">
+      <div>
+        <a href="https://www.instagram.com/taskowl2024?igsh=MXg1Z2o1zOGhrMg==" target="_blank">
+          <img src="../img/insta.png" alt="Instagram" /></a>
+        <a href="mailto:taskowl9@gmail.com" target="_blank"><img src="../img/email.png" alt="Email" /></a>
+        <a href="https://wa.me/5511982518435" target="_blank"><img src="../img/wpp.png" alt="WhatsApp" /></a>
+      </div>
+      <a href="../termos/termos.html">Termos de uso • Política de privacidade</a>
+      <p>© Taskowl - São Paulo</p>
+    </div>
+    <div class="startup">
+      <h3>NOSSA STARTUP</h3>
+      <p>
+        Transformando ideias inovadoras em soluções impactantes, nossa startup
+        está moldando o futuro com criatividade e tecnologia.
+      </p>
+    </div>
+  </footer>
+  <script>
+    var dropdownBtns = document.getElementsByClassName("dropdown-btn");
+    for (var i = 0; i < dropdownBtns.length; i++) {
+      dropdownBtns[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        dropdownContent.style.display =
+          dropdownContent.style.display === "block" ? "none" : "block";
+      });
+    }
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(
+      ".carrossel img, .carrossel video"
+    );
+    const totalSlides = slides.length;
+
+    function mudarImagem(n) {
+      slides[slideIndex].classList.remove("active");
+      slideIndex = (slideIndex + n + totalSlides) % totalSlides;
+      slides[slideIndex].classList.add("active");
+    }
+
+    function iniciarCarrossel() {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slides[slideIndex].classList.add("active");
+    }
+
+    document.addEventListener("DOMContentLoaded", iniciarCarrossel);
+  </script>
+</body>
+
+</html>
