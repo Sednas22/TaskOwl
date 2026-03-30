@@ -183,5 +183,5 @@ Possíveis melhorias:
 - Cronograma + meta de jogos na semana;
 - versão mobile.
 
-<h3>Licensa:</h3>
+<h3>Licença:</h3>
 Projeto desenvolvido para fins educacionais e acadêmicos.
